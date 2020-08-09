@@ -26,8 +26,8 @@ public:
 	/* 返回S的元素个数，即栈的长度 */
 	int stackLength();
 	/* 若栈不空，则用e返回S的栈顶元素，并返回OK；否则返回ERROR */
-	Status *GetTop1();
-	Status *GetTop2();
+	SElemType *GetTop1();
+	SElemType *GetTop2();
 	/* 从栈底到栈顶依次对栈中每个元素显示 */
 	Status stackTraverse();
 	bool isempty() const;
