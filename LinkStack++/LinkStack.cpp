@@ -17,6 +17,7 @@ void LinkStack::ClearStack()
 		delete tmp;
 	}
 	lstor.count = 0;
+	lstor.top = nullptr;
 }
 
 bool LinkStack::StackEmpty()
@@ -67,6 +68,11 @@ Status LinkStack::Pop(SElemType &elem)
 
 Status LinkStack::StackTraverse()
 {
+	if (StackEmpty())
+	{
+		std::cout << "¿ÕÕ»" << std::endl;
+		return ERROR;
+	}
 	LinkStackPtr p;
 	p = lstor.top;
 	while (p)
