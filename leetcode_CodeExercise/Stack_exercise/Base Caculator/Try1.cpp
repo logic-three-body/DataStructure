@@ -16,17 +16,16 @@ int calculate(std::string &,int );
 RecordPar calculate(std::string &, RecordPar );
 int main()
 {
-	int num;
-	std::string s = "1-(12*30)";
-	std::string s1 = "(12*30)-(12*30)";
-	std::string s2 = "(1+(4       +5+2)-    3)+(     6+8)";
-	std::string s3 = "(1 + 4 * (3 - 2) * 0) -  4  ";
-	//num=TransformStr(s);
-	RecordPar record = {0,0};
-	//num = calculate(s,0)
-	record=calculate(s3,record);
-	//std::cout << num << std::endl;
-	std::cout << record.res << std::endl;
+	std::string s="";
+	std::cin >> s;
+	while (s!="=")
+	{
+	 RecordPar record = {0,0};
+	 record=calculate(s,record);
+	 std::cout << record.res << std::endl;
+	 std::cin >> s;
+	}
+	return 0;
 }
 
 int TransformStr(std::string &str)
