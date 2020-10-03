@@ -13,8 +13,23 @@
 #include<string>
 #include<stack>
 using namespace std;
+double Caculation(double a, double b, char op);
+char Precede(char a, char b);
+void MidSuffix(std::string &str);
+int main()
+{
+	std::string str;
+	while (true)
+	{
+		std::cin >> str;
+		if (str == "=") break;
+		MidSuffix(str);
+		
+	}
+	return 0;
+}
 
-double Fun(double a, double b, char op)
+double Caculation(double a, double b, char op)
 {
 	if (op == '+')
 		return b + a;
@@ -36,78 +51,71 @@ char Precede(char a, char b)
 		return '>';
 }
 
-int main()
+void MidSuffix(std::string &str)
 {
-	int i;
-	double y;
-	double a, b;
+
+	double result;
+	double numA, numB;
 	char oper;
-	std::string str;
-	while (1)
+
+	int x = 0;
+	int elem = 0, flag = 0;
+	stack<double> data;
+	stack<char> op;
+	op.push('=');
+	for (int i = 0; str[i] != '\0'; i++)
 	{
-		std::cin >> str;
-		if (str[0] == '=')
-			break;
-		int x = 0;
-		int e = 0, flag = 0;
-		stack<double> data;
-		stack<char> op;
-		op.push('=');
-		for (i = 0; str[i] != '\0'; i++)
+		if (str[i] >= '0'&&str[i] <= '9')
 		{
-			if (str[i] >= '0'&&str[i] <= '9')
+			flag = 1;
+			x = x * 10 + str[i] - '0';
+			if (elem)
 			{
-				flag = 1;
-				x = x * 10 + str[i] - '0';
-				if (e)
-				{
-					e *= 10;
-				}
+				elem *= 10;
 			}
-			else if (str[i] == '.')
+		}
+		else if (str[i] == '.')
+		{
+			elem = 1;
+		}
+		else
+		{
+			if (flag)
 			{
-				e = 1;
+				if (elem)
+					result = x * 1.0 / elem;
+				else
+					result = x * 1.0;
+				data.push(result);
+				x = 0;
+				elem = 0;
+				flag = 0;
 			}
-			else
+			while (1)
 			{
-				if (flag)
+				if (Precede(op.top(), str[i]) == '<')
 				{
-					if (e)
-						y = x * 1.0 / e;
-					else
-						y = x * 1.0;
-					data.push(y);
-					x = 0;
-					e = 0;
-					flag = 0;
+					op.push(str[i]);
+					break;
 				}
-				while (1)
+				else if (Precede(op.top(), str[i]) == '>')
 				{
-					if (Precede(op.top(), str[i]) == '<')
-					{
-						op.push(str[i]);
-						break;
-					}
-					else if (Precede(op.top(), str[i]) == '>')
-					{
-						a = data.top();
-						data.pop();
-						b = data.top();
-						data.pop();
-						oper = op.top();
-						op.pop();
-						y = Fun(a, b, oper);
-						data.push(y);
-					}
-					else
-					{
-						op.pop();
-						break;
-					}
+					numA = data.top();
+					data.pop();
+					numB = data.top();
+					data.pop();
+					oper = op.top();
+					op.pop();
+					result = Caculation(numA, numB, oper);
+					data.push(result);
+				}
+				else
+				{
+					op.pop();
+					break;
 				}
 			}
 		}
-		printf("%.2f\n", data.top());
 	}
-	return 0;
+	printf("%.2f\n", data.top());
 }

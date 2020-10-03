@@ -125,6 +125,9 @@
   <ItemGroup>
     <ClCompile Include="Midfix.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Midfix.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
