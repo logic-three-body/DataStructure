@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{AC71227B-914D-44D2-B10D-16327E78D5FE}</ProjectGuid>
-    <RootNamespace>MidfixExpression</RootNamespace>
+    <ProjectGuid>{AAC6A9B3-5137-4E5D-8EB1-5D3B0257C8E3}</ProjectGuid>
+    <RootNamespace>BaseExerciseWeb</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -123,7 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Midfix.cpp" />
+    <ClCompile Include="baseExerciseWeb.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

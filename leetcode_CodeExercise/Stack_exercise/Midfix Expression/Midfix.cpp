@@ -23,8 +23,7 @@ int main()
 	{
 		std::cin >> str;
 		if (str == "=") break;
-		MidSuffix(str);
-		
+		MidSuffix(str);		
 	}
 	return 0;
 }
