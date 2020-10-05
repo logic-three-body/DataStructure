@@ -124,11 +124,42 @@ Status StackTraverse(LinkStack S)
 	return OK;
 }
 
+//判断合法性
+int JudgeLegal(std::string &str)
+{
+	int i = 0;
+	int Input = 0;
+	int Output = 0;
+	while (str[i] != '\0')
+	{
+		switch (str[i])
+		{
+		case 'I':Input++; break;
+		case 'O':Output++; 
+			if (Output > Input)
+			{
+				std::cout << "FALSE" << std::endl;
+				return ERROR;
+			}
+		break;
+		}
+		i++;
+	}
+	if (Input != Output)
+	{
+		std::cout << "FALSE" << std::endl;
+		return ERROR;
+	}
+	else
+	{
+		std::cout << "TRUE" << std::endl;
+		return OK;
+	}
+}
+
 int main()
 {
 	LinkStack st;
-	int flag = ERROR;//合法性判断
-
 	std::string str="";
 
 	while (true)
@@ -139,28 +170,8 @@ int main()
 		{
 			break;
 		}
-		int len = str.length();
-		for (int i = 0; i < len; i++)
-		{
-			if ('I'==str[i])
-			{
-				Push(&st, str[i]);
-				flag = OK;
-			}
-			else
-			{
-				if (!Pop(&st, &str[i]))
-				{
-					flag = ERROR;
-					std::cout << "FALSE"<<std::endl;
-					break;
-				}				
-			}
-		}
-		if (flag)
-		{
-			std::cout << "TRUE" << std::endl;
-		}
+		JudgeLegal(str);
+
 	}
 
 	return 0;
