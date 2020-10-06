@@ -1,6 +1,38 @@
 #include<cstdio>
 #include<windows.h>
 #include<cmath>
+#include<iostream>
+void ASCILL_Sort(char t[],int q[])
+{
+	char c;
+	int  i, j;
+	int tmp;
+	int len = strlen(t);
+	/**********found***********/
+	for (i = 0; i < len; i++)
+	{
+		for (j = 0; j < len - i-1; j++)
+			/**********found***********/
+		{
+			if (t[j] > t[j + 1])
+			{
+				//排字符
+				c = t[j];
+				t[j] = t[j + 1];
+				t[j + 1] = c;
+				//排次数
+				tmp = q[j];
+				q[j] = q[j + 1];
+				q[j + 1] = tmp;
+
+			}
+
+		}
+	}
+
+}
+
+
 void divide(char*str)
 {
 	char ch[100] = { '\0' };
@@ -28,11 +60,13 @@ void divide(char*str)
 	{
 		printf("请确定输入的是在（A-Z）或（0-9）之间\r\n");
 	}
+	//TODO wait for sorting	
+	ASCILL_Sort(ch, times);
 	FILE *text = NULL;
 	fopen_s(&text, "output.txt", "w+");
 	for (int i = 0; i < n; i++)
 	{
-		fprintf(text, "%c出现了%d次\r\n", ch[i], times[i]);
+		fprintf(text, "%c出现了%d次\r\n", ch[i], times[i]);	
 		printf("%c出现了%d次\r\n", ch[i], times[i]);
 	}
 
@@ -43,7 +77,8 @@ int main()
 	system("color 0A");
 	char StrArry[100] = { '\0' };
 	printf("请输入一串字符:\r\n");
-	scanf_s("%s", &StrArry, 100);
+	//scanf_s("%s", &StrArry, 100);
+	std::cin >> StrArry;
 	printf("输入的字符串为：%s\r\n", StrArry);
 	divide(StrArry);
 	return 0;
