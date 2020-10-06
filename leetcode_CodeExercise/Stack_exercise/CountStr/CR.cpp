@@ -2,6 +2,7 @@
 #include<windows.h>
 #include<cmath>
 #include<iostream>
+
 void ASCILL_Sort(char t[],int q[])
 {
 	char c;
@@ -62,24 +63,24 @@ void divide(char*str)
 	}
 	//TODO wait for sorting	
 	ASCILL_Sort(ch, times);
-	FILE *text = NULL;
-	fopen_s(&text, "output.txt", "w+");
 	for (int i = 0; i < n; i++)
 	{
-		fprintf(text, "%c出现了%d次\r\n", ch[i], times[i]);	
-		printf("%c出现了%d次\r\n", ch[i], times[i]);
+		printf("%c:%d\n", ch[i], times[i]);
 	}
 
-	printf("写出文件成功！");
 }
 int main()
 {
-	system("color 0A");
-	char StrArry[100] = { '\0' };
-	printf("请输入一串字符:\r\n");
-	//scanf_s("%s", &StrArry, 100);
-	std::cin >> StrArry;
-	printf("输入的字符串为：%s\r\n", StrArry);
-	divide(StrArry);
+	system("color 0A");	
+	while (true)
+	{
+		char StrArry[100] = { '\0' };
+		gets_s(StrArry);
+		if (*StrArry == '0')
+		{
+			break;
+		}
+		divide(StrArry);
+	}
 	return 0;
 }
