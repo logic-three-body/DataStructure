@@ -1,5 +1,4 @@
 #include<iostream>
-
 #define ElemType int
 #define Status int
 #define OK 1
@@ -45,30 +44,29 @@ void CreateListTail(LinkList *L, int n)
 }
 ElemType NodeNum(LinkList L)
 {
-	if (L->next==nullptr)
+	if (L->next == nullptr)
 	{
-		return L->data;
+		return 1;
 	}
 
-	return (NodeNum(L->next) + L->data);
+	return NodeNum(L->next)+1;
 
 }
 
 int main()
 {
 	LinkList L;
-	int n,length;
-	double Average;
+	int n;
+	int Num;
 	std::cin >> n;
 	while (n)
 	{
 		CreateListTail(&L, n);
 		LinkList p = L->next;
-		Average = NodeNum(p);
-		printf("%.2f\n", Average / n);
+		Num = NodeNum(p);
+		printf("%d\n", Num );
 		std::cin >> n;
 	}
-	system("pause");
 	return 0;
 
 }

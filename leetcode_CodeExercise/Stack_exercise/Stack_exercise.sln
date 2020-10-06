@@ -21,6 +21,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Suffix Expression", "Suffix
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "suffix Copy", "suffix Copy\suffix Copy.vcxproj", "{3C7E7038-CF71-41A0-9590-66F7DEF7E657}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NodeNum", "NodeNum\NodeNum.vcxproj", "{D871A910-6898-4BCA-AA47-5786E758ED6D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -101,6 +103,14 @@ Global
 		{3C7E7038-CF71-41A0-9590-66F7DEF7E657}.Release|x64.Build.0 = Release|x64
 		{3C7E7038-CF71-41A0-9590-66F7DEF7E657}.Release|x86.ActiveCfg = Release|Win32
 		{3C7E7038-CF71-41A0-9590-66F7DEF7E657}.Release|x86.Build.0 = Release|Win32
+		{D871A910-6898-4BCA-AA47-5786E758ED6D}.Debug|x64.ActiveCfg = Debug|x64
+		{D871A910-6898-4BCA-AA47-5786E758ED6D}.Debug|x64.Build.0 = Debug|x64
+		{D871A910-6898-4BCA-AA47-5786E758ED6D}.Debug|x86.ActiveCfg = Debug|Win32
+		{D871A910-6898-4BCA-AA47-5786E758ED6D}.Debug|x86.Build.0 = Debug|Win32
+		{D871A910-6898-4BCA-AA47-5786E758ED6D}.Release|x64.ActiveCfg = Release|x64
+		{D871A910-6898-4BCA-AA47-5786E758ED6D}.Release|x64.Build.0 = Release|x64
+		{D871A910-6898-4BCA-AA47-5786E758ED6D}.Release|x86.ActiveCfg = Release|Win32
+		{D871A910-6898-4BCA-AA47-5786E758ED6D}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,22 @@
+﻿
+将“Aver”重命名为“NodeNum”:
+---------------------
+E:\college class\coding\Data Structure\stack\stack_primary\leetcode_CodeExercise\Stack_exercise\NodeNum\NodeNum.cpp(45, 10)
+E:\college class\coding\Data Structure\stack\stack_primary\leetcode_CodeExercise\Stack_exercise\NodeNum\NodeNum.cpp(52, 10)
+E:\college class\coding\Data Structure\stack\stack_primary\leetcode_CodeExercise\Stack_exercise\NodeNum\NodeNum.cpp(66, 13)
+E:\college class\coding\Data Structure\stack\stack_primary\leetcode_CodeExercise\Stack_exercise\Recurrence\recur.cpp(46, 10)
+E:\college class\coding\Data Structure\stack\stack_primary\leetcode_CodeExercise\Stack_exercise\Recurrence\recur.cpp(53, 10)
+E:\college class\coding\Data Structure\stack\stack_primary\leetcode_CodeExercise\Stack_exercise\Recurrence\recur.cpp(67, 13)
+
+将“Average”重命名为“NodeNum”:
+------------------------
+E:\college class\coding\Data Structure\stack\stack_primary\leetcode_CodeExercise\Stack_exercise\NodeNum\NodeNum.cpp(60, 6)
+E:\college class\coding\Data Structure\stack\stack_primary\leetcode_CodeExercise\Stack_exercise\NodeNum\NodeNum.cpp(66, 3)
+E:\college class\coding\Data Structure\stack\stack_primary\leetcode_CodeExercise\Stack_exercise\NodeNum\NodeNum.cpp(67, 20)
+
+将“NodeNum”重命名为“Num”:
+--------------------
+E:\college class\coding\Data Structure\stack\stack_primary\leetcode_CodeExercise\Stack_exercise\NodeNum\NodeNum.cpp(60, 6)
+E:\college class\coding\Data Structure\stack\stack_primary\leetcode_CodeExercise\Stack_exercise\NodeNum\NodeNum.cpp(66, 3)
+E:\college class\coding\Data Structure\stack\stack_primary\leetcode_CodeExercise\Stack_exercise\NodeNum\NodeNum.cpp(66, 13)
+E:\college class\coding\Data Structure\stack\stack_primary\leetcode_CodeExercise\Stack_exercise\NodeNum\NodeNum.cpp(67, 20)
