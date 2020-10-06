@@ -21,7 +21,8 @@ int main()
 	std::string str;
 	while (true)
 	{
-		std::cin >> str;
+		//std::cin >> str;
+		getline(cin, str);
 		if (str == "=") break;
 		MidSuffix(str);		
 	}
@@ -79,6 +80,11 @@ void MidSuffix(std::string &str)
 		}
 		else
 		{
+			if (str[i] == ' ')
+			{
+				continue;
+			}
+
 			if (flag)
 			{
 				if (elem)
@@ -90,6 +96,7 @@ void MidSuffix(std::string &str)
 				elem = 0;
 				flag = 0;
 			}
+
 			while (1)
 			{
 				if (Precede(op.top(), str[i]) == '<')
