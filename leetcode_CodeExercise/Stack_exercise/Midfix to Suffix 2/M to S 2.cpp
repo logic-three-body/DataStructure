@@ -3,7 +3,8 @@
 #include<stdlib.h>
 #include<ctype.h> 
 #include<assert.h>
-
+#include<iostream>
+#include<stack>
 #define INITSIZE  20
 #define INCREMENT 10
 #define MAXSIEZE 20
@@ -55,11 +56,12 @@ int Pop(SqStack *S, Elemtype *c)
 }
 
 /*中缀转后缀函数*/
-void Change(SqStack *S, Elemtype str[])
+void Change(std::stack<char> &S, Elemtype str[])
 {
 	int i = 0;
-	Elemtype e;
-	InitStack(S);
+	Elemtype elem;
+	int stackLen=0;
+	//InitStack(S);
 	while (str[i] != '\0')
 	{
 		if (str[i]=='=')
@@ -88,43 +90,54 @@ void Change(SqStack *S, Elemtype str[])
 		括号要和又括号匹配时弹出，这个后面单独讨论。弹出后将优先级低的运算符压入栈中*/
 		if (str[i] == '+' || str[i] == '-')
 		{
-			if (!StackLength(S))
+			if (!S.size())
 			{
-				Push(S, str[i]);
+				//Push(S, str[i]);
+				S.push(str[i]);
 			}
 			else
 			{
 				do
 				{
-					Pop(S, &e);
-					if (e == '(')
+					//Pop(S, &elem);
+					elem = S.top();
+					S.pop();
+					if (elem == '(')
 					{
-						Push(S, e);
+						//Push(S, elem);
+						S.push(elem);
 					}
 					else
 					{
-						printf("%c", e);
+						printf("%c", elem);
 					}
-				} while (StackLength(S) && e != '(');
+					stackLen = S.size();
+				} while (stackLen && elem != '(');
 
-				Push(S, str[i]);
+				//Push(S, str[i]);
+				S.push(str[i]);
 			}
 		}
 		/*当遇到右括号是，把括号里剩余的运算符弹出，直到匹配到左括号为止
 		左括号只弹出不打印（右括号也不压栈）*/
 		else if (str[i] == ')')
 		{
-			Pop(S, &e);
-			while (e != '(')
+			//Pop(S, &elem);
+			elem = S.top();
+			S.pop();
+			while (elem != '(')
 			{
-				printf("%c", e);
-				Pop(S, &e);
+				printf("%c", elem);
+				//Pop(S, &elem);
+				elem = S.top();
+				S.pop();
 			}
 		}
 		/*乘、除、左括号都是优先级高的，直接压栈*/
 		else if (str[i] == '*' || str[i] == '/' || str[i] == '(')
 		{
-			Push(S, str[i]);
+			//Push(S, str[i]);
+			S.push(str[i]);
 		}
 
 		else if (str[i] == '\0')
@@ -139,25 +152,31 @@ void Change(SqStack *S, Elemtype str[])
 		}
 		i++;
 	}
+
+	stackLen = S.size();
 	/*最后把栈中剩余的运算符依次弹栈打印*/
-	while (StackLength(S))
+	while (stackLen)
 	{
-		Pop(S, &e);
-		printf("%c", e);
+		//Pop(S, &elem);
+		elem = S.top();
+		S.pop();
+		printf("%c", elem);
+		stackLen = S.size();
 	}
 }
 
 int main()
 {
 	Elemtype str[MAXSIEZE];
-	SqStack S;
+	//SqStack S;
+	std::stack<char> S;
 	while (scanf("%s",str))
 	{
 		if (str[0]=='=')
 		{
 			break;
 		}
-		Change(&S, str);
+		Change(S, str);
 		printf("\n");
 	}	
 	return 0;
