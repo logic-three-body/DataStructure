@@ -1,59 +1,13 @@
 #define _CRT_SECURE_NO_WARNINGS //put in first line
-#include<stdio.h>
-#include<stdlib.h>
 #include<ctype.h> 
-#include<assert.h>
 #include<iostream>
 #include<stack>
-#define INITSIZE  20
-#define INCREMENT 10
-#define MAXSIEZE 20
-#define LEN  sizeof(Elemtype)
+#define MAXSIEZE 100
+
 
 /*栈的动态分配存储结构*/
 typedef char Elemtype;
-typedef struct {
-	Elemtype *base;
-	Elemtype *top;
-	int StackSize;
-}SqStack;
 
-/*初始化栈*/
-void InitStack(SqStack *S)
-{
-	S->base = (Elemtype*)malloc(LEN*INITSIZE);
-	assert(S->base != NULL);
-	S->top = S->base;
-	S->StackSize = INITSIZE;
-}
-
-/*压栈操作*/
-void Push(SqStack *S, Elemtype c)
-{
-	if (S->top - S->base >= S->StackSize)
-	{
-		S->base = (Elemtype*)realloc(S->base, LEN*(S->StackSize + INCREMENT));
-		assert(S->base != NULL);
-		S->top = S->base + S->StackSize;
-		S->StackSize += INCREMENT;
-	}
-	*S->top++ = c;
-}
-/*求栈长*/
-int StackLength(SqStack *S)
-{
-	return (S->top - S->base);
-}
-/*弹栈操作*/
-int Pop(SqStack *S, Elemtype *c)
-{
-	if (!StackLength(S))
-	{
-		return 0;
-	}
-	*c = *--S->top;
-	return 1;
-}
 
 /*中缀转后缀函数*/
 void Change(std::stack<char> &S, Elemtype str[])
@@ -62,28 +16,15 @@ void Change(std::stack<char> &S, Elemtype str[])
 	Elemtype elem;
 	int stackLen=0;
 	//InitStack(S);
-	while (str[i] != '\0')
+	while (str[i] != '=')
 	{
-		if (str[i]=='=')
-		{
-			++i;
-			continue;
-		}
+
 
 		while (isdigit(str[i]))
 		{/*过滤数字字符，直接输出，直到下一位不是数字字符打印空格跳出循环 */
 			printf("%c", str[i++]);
-			if (!isdigit(str[i]))
-			{
-				printf("");
-			}
 		}
 
-		if (str[i] == '=')
-		{
-			++i;
-			continue;
-		}
 
 		/*加减运算符优先级最低，如果栈顶元素为空则直接入栈，否则将栈中存储
 		的运算符全部弹栈，如果遇到左括号则停止，将弹出的左括号从新压栈，因为左
@@ -140,7 +81,7 @@ void Change(std::stack<char> &S, Elemtype str[])
 			S.push(str[i]);
 		}
 
-		else if (str[i] == '\0')
+		else if (str[i] == '=')
 		{
 			break;
 		}
