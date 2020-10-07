@@ -39,6 +39,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Midffix to Suffix", "Midffi
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Midfix to Suffix 2", "Midfix to Suffix 2\Midfix to Suffix 2.vcxproj", "{0D317E8F-45B6-488D-BD5D-68A4194B05E3}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ackerman_Non Recur", "Ackerman_Non Recur\Ackerman_Non Recur.vcxproj", "{C7F4A495-6C30-4C2B-8053-899CE1E15A55}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -191,6 +193,14 @@ Global
 		{0D317E8F-45B6-488D-BD5D-68A4194B05E3}.Release|x64.Build.0 = Release|x64
 		{0D317E8F-45B6-488D-BD5D-68A4194B05E3}.Release|x86.ActiveCfg = Release|Win32
 		{0D317E8F-45B6-488D-BD5D-68A4194B05E3}.Release|x86.Build.0 = Release|Win32
+		{C7F4A495-6C30-4C2B-8053-899CE1E15A55}.Debug|x64.ActiveCfg = Debug|x64
+		{C7F4A495-6C30-4C2B-8053-899CE1E15A55}.Debug|x64.Build.0 = Debug|x64
+		{C7F4A495-6C30-4C2B-8053-899CE1E15A55}.Debug|x86.ActiveCfg = Debug|Win32
+		{C7F4A495-6C30-4C2B-8053-899CE1E15A55}.Debug|x86.Build.0 = Debug|Win32
+		{C7F4A495-6C30-4C2B-8053-899CE1E15A55}.Release|x64.ActiveCfg = Release|x64
+		{C7F4A495-6C30-4C2B-8053-899CE1E15A55}.Release|x64.Build.0 = Release|x64
+		{C7F4A495-6C30-4C2B-8053-899CE1E15A55}.Release|x86.ActiveCfg = Release|Win32
+		{C7F4A495-6C30-4C2B-8053-899CE1E15A55}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
