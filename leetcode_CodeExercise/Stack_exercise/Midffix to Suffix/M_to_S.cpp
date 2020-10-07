@@ -20,7 +20,7 @@ vector<string> preParse(const char *str)   //对中缀表达式进行预处理，分离出每个t
 	int i = 0, j = 0;
 	while (i < len)          //去除表达式中的空格
 	{
-		if (str[i] == ' ')
+		if (str[i] == ' '||str[i]=='=')
 		{
 			i++;
 			continue;
@@ -106,6 +106,7 @@ int getPriority(string opt)
 
 void calculate(stack<int> &opdStack, string opt)
 {
+
 	if (opt == "#")  //进行负号运算
 	{
 		int opd = opdStack.top();
@@ -233,7 +234,7 @@ int evaMidExpression(const char *str)   //中缀表达式直接求值
 
 int main(int argc, char *argv[])
 {
-	const char *str = "9+(3-1)*3+1/2";
+	const char *str = "9+(3-1)*3+1/2=";
 	cout << evaMidExpression(str) << endl;
 	return 0;
 }
