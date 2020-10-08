@@ -12,21 +12,25 @@
 #define MAX_ROW  12
 #define MAX_COL  14
 
+#define Road 0
+#define Wall 1
+#define Trace 2
+#define Star 3
 using namespace std;
 
-int maze[12][14] = {
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-    1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1,
-    1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1,
-    1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1,
-    1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1,
-    1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1,
-    1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1,
-    1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1,
-    1, 0, 0, 0, 0, 1 ,0 ,0, 0 ,0 ,1 ,0 ,1 ,1,
-    1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1,
-    1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1,
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+int maze[MAX_ROW][MAX_COL] = {
+    Wall, Wall, Wall, Wall, Wall, Wall, Wall, Wall, Wall, Wall, Wall, Wall, Wall, Wall,
+    Wall, Road, Wall, Road, Road, Road, Wall, Road, Wall, Wall, Road, Wall, Wall, Wall,
+    Wall, Road, Wall, Road, Wall, Road, Wall, Road, Road, Road, Road, Road, Wall, Wall,
+    Wall, Road, Road, Road, Wall, Road, Road, Road, Wall, Wall, Wall, Road, Road, Wall,
+    Wall, Road, Wall, Wall, Wall, Road, Wall, Road, Road, Road, Wall, Road, Wall, Wall,
+    Wall, Road, Road, Road, Wall, Wall, Wall, Wall, Road, Wall, Wall, Road, Road, Wall,
+    Wall, Wall, Road, Road, Wall, Road, Wall, Wall, Road, Wall, Road, Wall, Wall, Wall,
+    Wall, Wall, Road, Wall, Road, Wall, Road, Wall, Wall, Road, Road, Road, Road, Wall,
+    Wall, Road, Road, Road, Road, Wall ,Road ,Road, Road ,Road ,Wall ,Road ,Wall ,Wall,
+    Wall, Wall, Road, Road, Wall, Wall, Road, Wall, Wall, Wall, Wall, Road, Road, Wall,
+    Wall, Road, Wall, Road, Road, Road, Road, Wall, Road, Road, Road, Road, Road, Wall,
+    Wall, Wall, Wall, Wall, Wall, Wall, Wall, Wall, Wall, Wall, Wall, Wall, Wall, Wall
 };
 
 void print_line()
@@ -36,8 +40,8 @@ void print_line()
     int i, j;
     for (i = 0; i < MAX_ROW; i++){
         for (j = 0; j < MAX_COL; j++)
-            if (maze[i][j] == 1)       printf("■");
-            else if (maze[i][j] >= 3){//大于三的点为路径
+            if (maze[i][j] == Wall)       printf("■");
+            else if (maze[i][j] >= Star){//大于三的点为路径
                // printf("%2d", maze[i][j] - 2);
                 if (i == MAX_ROW-2 && j == MAX_COL-2)  printf("★");
                 else                   printf("☆");
@@ -54,17 +58,17 @@ void visit(mark p,int sign, PSeqStack S)
     Push_SeqStack(S,p);
     switch (sign)
     {
-    case 1: p.col++; Push_SeqStack(S, p); maze[p.row][p.col] = 2; break;//向右
-    case 2: p.row++; Push_SeqStack(S, p); maze[p.row][p.col] = 2; break;//向下
-    case 3: p.col--; Push_SeqStack(S, p); maze[p.row][p.col] = 2; break;//向左
-    case 4: p.row--; Push_SeqStack(S, p); maze[p.row][p.col] = 2; break;//向上
+    case 1: p.col++; Push_SeqStack(S, p); maze[p.row][p.col] = Trace; break;//向右
+    case 2: p.row++; Push_SeqStack(S, p); maze[p.row][p.col] = Trace; break;//向下
+    case 3: p.col--; Push_SeqStack(S, p); maze[p.row][p.col] = Trace; break;//向左
+    case 4: p.row--; Push_SeqStack(S, p); maze[p.row][p.col] = Trace; break;//向上
     }
 }
 
 int main()
 {
     struct point p = { 1, 1 };
-    maze[p.row][p.col] = 2;//遍历过的点设置为2
+    maze[p.row][p.col] = Trace;//遍历过的点设置为2
     PSeqStack S = Init_SeqStack();
     Push_SeqStack(S,p);
     while (!Empty_SeqStack(S))
@@ -72,22 +76,22 @@ int main()
         Pop_SeqStack(S, &p);//弹栈
         if (p.row == MAX_ROW - 2 && p.col == MAX_COL - 2)
             break;
-        if (p.col + 1 < MAX_COL - 1 && maze[p.row][p.col + 1] == 0)//向右
+        if (p.col + 1 < MAX_COL - 1 && maze[p.row][p.col + 1] == Road)//向右
         {
             visit(p, 1, S);
             continue;
         }
-        if (p.row + 1 < MAX_ROW - 1 && maze[p.row + 1][p.col] == 0)//向下
+        if (p.row + 1 < MAX_ROW - 1 && maze[p.row + 1][p.col] == Road)//向下
         {
             visit(p, 2, S);
             continue;
         }
-        if (p.col - 1 >= 1 && maze[p.row][p.col - 1] == 0)//向左
+        if (p.col - 1 >= 1 && maze[p.row][p.col - 1] == Road)//向左
         {
             visit(p, 3, S);
             continue;
         }
-        if (p.row - 1 >= 1 && maze[p.row - 1][p.col] == 0)//向上
+        if (p.row - 1 >= 1 && maze[p.row - 1][p.col] == Road)//向上
         {
             visit(p, 4, S);
             continue;
@@ -95,7 +99,7 @@ int main()
     }
     if (p.row == MAX_ROW - 2 && p.col == MAX_COL - 2)//是否为出口
     {
-        int count = GetLength_SeqStack(S)+3;//为了与迷宫0,1,2的区别所以基数要以3开始
+        int count = GetLength_SeqStack(S)+Star;//为了与迷宫0,1,2(Road,Wall,Trace)的区别所以基数要以3(Star)开始
         printf("成功找到出口，路径倒序输出：\n");
         printf("(%d,%d)\n", p.row, p.col);
         maze[p.row][p.col] = count;
