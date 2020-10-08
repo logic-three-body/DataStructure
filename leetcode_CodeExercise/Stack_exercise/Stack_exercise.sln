@@ -41,6 +41,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Midfix to Suffix 2", "Midfi
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ackerman_Non Recur", "Ackerman_Non Recur\Ackerman_Non Recur.vcxproj", "{C7F4A495-6C30-4C2B-8053-899CE1E15A55}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2D array search", "2D array search\2D array search.vcxproj", "{F98015D4-1A63-465C-8F27-483E355818CC}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2D array search using 1D", "2D array search using 1D\2D array search using 1D.vcxproj", "{E700F3DF-15CC-4A9F-884C-7872DB90E143}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -201,6 +205,22 @@ Global
 		{C7F4A495-6C30-4C2B-8053-899CE1E15A55}.Release|x64.Build.0 = Release|x64
 		{C7F4A495-6C30-4C2B-8053-899CE1E15A55}.Release|x86.ActiveCfg = Release|Win32
 		{C7F4A495-6C30-4C2B-8053-899CE1E15A55}.Release|x86.Build.0 = Release|Win32
+		{F98015D4-1A63-465C-8F27-483E355818CC}.Debug|x64.ActiveCfg = Debug|x64
+		{F98015D4-1A63-465C-8F27-483E355818CC}.Debug|x64.Build.0 = Debug|x64
+		{F98015D4-1A63-465C-8F27-483E355818CC}.Debug|x86.ActiveCfg = Debug|Win32
+		{F98015D4-1A63-465C-8F27-483E355818CC}.Debug|x86.Build.0 = Debug|Win32
+		{F98015D4-1A63-465C-8F27-483E355818CC}.Release|x64.ActiveCfg = Release|x64
+		{F98015D4-1A63-465C-8F27-483E355818CC}.Release|x64.Build.0 = Release|x64
+		{F98015D4-1A63-465C-8F27-483E355818CC}.Release|x86.ActiveCfg = Release|Win32
+		{F98015D4-1A63-465C-8F27-483E355818CC}.Release|x86.Build.0 = Release|Win32
+		{E700F3DF-15CC-4A9F-884C-7872DB90E143}.Debug|x64.ActiveCfg = Debug|x64
+		{E700F3DF-15CC-4A9F-884C-7872DB90E143}.Debug|x64.Build.0 = Debug|x64
+		{E700F3DF-15CC-4A9F-884C-7872DB90E143}.Debug|x86.ActiveCfg = Debug|Win32
+		{E700F3DF-15CC-4A9F-884C-7872DB90E143}.Debug|x86.Build.0 = Debug|Win32
+		{E700F3DF-15CC-4A9F-884C-7872DB90E143}.Release|x64.ActiveCfg = Release|x64
+		{E700F3DF-15CC-4A9F-884C-7872DB90E143}.Release|x64.Build.0 = Release|x64
+		{E700F3DF-15CC-4A9F-884C-7872DB90E143}.Release|x86.ActiveCfg = Release|Win32
+		{E700F3DF-15CC-4A9F-884C-7872DB90E143}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
