@@ -1,6 +1,5 @@
 //help：https://blog.csdn.net/weixin_43722827/article/details/102755620
 #include<iostream>
-#include "maze.h"
 using namespace std;
 #define Row 100
 #define Col 3
@@ -9,7 +8,7 @@ int flag;
 int p[Row];
 int m[Row][Col];
 void DFS(int n);
-
+void CreateMaze(int n);
 int main()
 {
 	int n;
@@ -46,11 +45,11 @@ void DFS(int n)
 	}
 	for (int i = 0; i < Col; i++)
 	{
-		if (m[n][i] && !p[m[n][i]])
+		if (m[n][i] && !p[m[n][i]])//!p[m[n][i]]为排除已经找过的点
 		{
 			p[m[n][i]] = 1;
-			DFS(m[n][i]);
-			p[m[n][i]] = 0;
+			DFS(m[n][i]);//寻找这一行是否有出口
+			p[m[n][i]] = 0;//恢复此点原状态
 		}
 	}
 }
