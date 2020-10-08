@@ -11,8 +11,9 @@ int PNS(int a[], int m)
 	for (i = 0; i < m; i++)
 		b[i] = a[i];
 
+	//sort start
 	int k = 0;
-	for (i = 0; i < m; i++)
+	for (i = 0; i < m; i++)//先把正数存到数组里
 	{
 		if (b[i] > 0)
 		{
@@ -20,7 +21,7 @@ int PNS(int a[], int m)
 			k++;
 		}
 	}
-	for (i = 0; i < m; i++)
+	for (i = 0; i < m; i++)//再把负数存到数组里
 	{
 		if (b[i] < 0)
 		{
@@ -28,6 +29,7 @@ int PNS(int a[], int m)
 			k++;
 		}
 	}
+	//sort stop
 	for (i = 0; i < m; i++)
 	{
 		cout << a[i];

@@ -49,6 +49,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sort_ODD_EVEN", "Sort_ODD_E
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sor_even_or_odd", "sor_even_or_odd\sor_even_or_odd.vcxproj", "{D34F9CA2-61AA-47EB-9A8F-D8BA59DACB3D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MAZE", "MAZE\MAZE.vcxproj", "{8AFC0B13-CCD0-4490-B8EA-03498DECD15F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -241,6 +243,14 @@ Global
 		{D34F9CA2-61AA-47EB-9A8F-D8BA59DACB3D}.Release|x64.Build.0 = Release|x64
 		{D34F9CA2-61AA-47EB-9A8F-D8BA59DACB3D}.Release|x86.ActiveCfg = Release|Win32
 		{D34F9CA2-61AA-47EB-9A8F-D8BA59DACB3D}.Release|x86.Build.0 = Release|Win32
+		{8AFC0B13-CCD0-4490-B8EA-03498DECD15F}.Debug|x64.ActiveCfg = Debug|x64
+		{8AFC0B13-CCD0-4490-B8EA-03498DECD15F}.Debug|x64.Build.0 = Debug|x64
+		{8AFC0B13-CCD0-4490-B8EA-03498DECD15F}.Debug|x86.ActiveCfg = Debug|Win32
+		{8AFC0B13-CCD0-4490-B8EA-03498DECD15F}.Debug|x86.Build.0 = Debug|Win32
+		{8AFC0B13-CCD0-4490-B8EA-03498DECD15F}.Release|x64.ActiveCfg = Release|x64
+		{8AFC0B13-CCD0-4490-B8EA-03498DECD15F}.Release|x64.Build.0 = Release|x64
+		{8AFC0B13-CCD0-4490-B8EA-03498DECD15F}.Release|x86.ActiveCfg = Release|Win32
+		{8AFC0B13-CCD0-4490-B8EA-03498DECD15F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
