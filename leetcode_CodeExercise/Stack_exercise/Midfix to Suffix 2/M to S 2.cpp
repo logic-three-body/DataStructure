@@ -1,3 +1,4 @@
+//MidSuffix to Suffix
 #define _CRT_SECURE_NO_WARNINGS //put in first line
 #include<ctype.h> 
 #include<iostream>

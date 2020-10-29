@@ -1,4 +1,4 @@
-#include<cstdio>
+#include<cstdio>//Caculate the ratio word
 #include<windows.h>
 #include<cmath>
 #include<iostream>

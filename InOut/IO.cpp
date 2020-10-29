@@ -1,4 +1,4 @@
-#include<iostream>
+#include<iostream>//Stack IIOO legal Judement By Str
 #include<string>
 
 

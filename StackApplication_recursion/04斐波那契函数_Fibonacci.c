@@ -1,4 +1,4 @@
-#include "stdio.h"
+#include "stdio.h"//Fabonacci
 
 int Fbi(int i)  /* ì³²¨ÄÇÆõµÄµÝ¹éº¯Êý */
 {
