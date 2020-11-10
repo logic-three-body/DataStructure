@@ -113,7 +113,7 @@ int main()
 			{
 				if ((s[i] >= '0'&&s[i] <= '9') || s[i] == '.')  //处理数字
 				{
-					char data[1000] = { 0 };
+					char data[1000];
 					int j = 0;
 					while ((s[i] >= '0'&&s[i] <= '9') || s[i] == '.')//num
 					{
@@ -121,12 +121,10 @@ int main()
 						i++;
 						j++;
 					}
+					data[j] = '\0';
 					double num;
 					num = atof(data);
 					OPND.push(num);
-					//清空数组
-					//memset(a, '/0', sizeof(a))
-					//memset(data, '\0', sizeof(data));
 				}
 				else {                                  //处理运算符
 					if (Precede(OPTR.top(), s[i]) == '>') {
@@ -141,7 +139,6 @@ int main()
 						double result;
 						result = Operate(left, theta, right);
 						OPND.push(result);
-						//OPTR.push(s[i]);
 					}
 					else if (Precede(OPTR.top(), s[i]) == '<')
 					{
@@ -159,7 +156,6 @@ int main()
 			double number;
 			number = OPND.top();
 			cout << fixed << setprecision(2) << number << endl;
-			//cout << OPND.top() << ' '<<OPTR.empty()<<endl;
 			
 		}
 	}
