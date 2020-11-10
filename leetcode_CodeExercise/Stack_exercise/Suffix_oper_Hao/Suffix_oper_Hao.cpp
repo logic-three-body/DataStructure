@@ -11,6 +11,7 @@
 #include<iomanip>
 #include<stack>
 #include <string.h>
+
 using namespace std;
 
 
@@ -112,7 +113,7 @@ int main()
 			{
 				if ((s[i] >= '0'&&s[i] <= '9') || s[i] == '.')  //处理数字
 				{
-					char data[1000];
+					char data[1000] = { 0 };
 					int j = 0;
 					while ((s[i] >= '0'&&s[i] <= '9') || s[i] == '.')//num
 					{
@@ -125,11 +126,10 @@ int main()
 					OPND.push(num);
 					//清空数组
 					//memset(a, '/0', sizeof(a))
-					memset(data, 0, sizeof(data));
+					//memset(data, '\0', sizeof(data));
 				}
 				else {                                  //处理运算符
-					switch (Precede(OPTR.top(), s[i])) {
-					case '>':
+					if (Precede(OPTR.top(), s[i]) == '>') {
 						double right, left;
 						right = OPND.top();
 						OPND.pop();
@@ -142,27 +142,25 @@ int main()
 						result = Operate(left, theta, right);
 						OPND.push(result);
 						//OPTR.push(s[i]);
-						break;
-					case '<':
+					}
+					else if (Precede(OPTR.top(), s[i]) == '<')
+					{
 						OPTR.push(s[i]);
 						++i;
-						break;
-
-					case '=':
+					}
+					else if (Precede(OPTR.top(), s[i]) == '=')
+					{
 						OPTR.pop();
 						++i;
-						break;
-					default:
-						break;
 					}
 					//i++;
 				}
-
 			}
 			double number;
 			number = OPND.top();
 			cout << fixed << setprecision(2) << number << endl;
-
+			//cout << OPND.top() << ' '<<OPTR.empty()<<endl;
+			
 		}
 	}
 	return 0;
