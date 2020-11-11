@@ -155,7 +155,7 @@ int main()
 			}
 			double number;
 			number = OPND.top();
-			cout << fixed << setprecision(2) << number << endl;
+			std::cout << fixed << setprecision(2) << number << endl;
 			
 		}
 	}
